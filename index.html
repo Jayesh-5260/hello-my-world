@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Jayesh Khatwani | Aerospace Engineering & Systems Portfolio</title>
+  <meta name="title" content="Jayesh Khatwani | Aerospace Engineering & Systems Portfolio">
+  <meta name="description" content="Portfolio of Jayesh Khatwani, B.Tech Aerospace Engineering student at SRM IST Chennai. Specializing in Aerodynamics, Structural Design, CAD (CATIA, SolidWorks), ANSYS CFD, Drone Mechanics, and Satellite Structures.">
+  <meta name="keywords" content="Jayesh Khatwani, Aerospace Engineer, SRM Aerospace, CAD, CATIA, SolidWorks, ANSYS CFD, SRMSAT, ASRL, Drone Mechanics, TUM Aerospace, Aerodynamics, Space Systems">
+  <meta name="author" content="Jayesh Khatwani">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jayeshkhatwani.github.io/">
+  <meta property="og:title" content="Jayesh Khatwani | Aerospace Engineering & Systems Portfolio">
+  <meta property="og:description" content="Explore aerospace projects, aerodynamics research, satellite structural analysis, CAD models, and flight dynamics by Jayesh Khatwani.">
+  <meta property="og:image" content="https://jayeshkhatwani.github.io/assets/preview.png">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://jayeshkhatwani.github.io/">
+  <meta property="twitter:title" content="Jayesh Khatwani | Aerospace Engineering & Systems Portfolio">
+  <meta property="twitter:description" content="Explore aerospace projects, aerodynamics research, satellite structural analysis, and CAD simulations by Jayesh Khatwani.">
+  <meta property="twitter:image" content="https://jayeshkhatwani.github.io/assets/preview.png">
+
+  <!-- Favicon (SVG Rocket) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🚀</text></svg>">
+
+  <!-- Google Fonts: Space Grotesk (Headers), Inter (Body), JetBrains Mono (Telemetry/Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- JSON-LD Structured Data for Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jayesh Khatwani",
+    "url": "https://jayeshkhatwani.github.io/",
+    "email": "jk032004de@gmail.com",
+    "jobTitle": "Aerospace Engineer & Systems Researcher",
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "SRM University of Science and Technology",
+        "department": "Department of Aerospace Engineering"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Mayoor School"
+      }
+    ],
+    "knowsAbout": [
+      "Aerospace Engineering",
+      "Aerodynamics",
+      "Structural Design",
+      "CATIA v5",
+      "SolidWorks",
+      "ANSYS CFD & FEA",
+      "Python",
+      "Drone Mechanics",
+      "Flight Controllers",
+      "Satellite Honeycomb Structures"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Fullscreen Interactive Aerospace Space Canvas (Planets, Orbits, Rockets, Particles) -->
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+  <!-- Flight HUD Top Status Bar -->
+  <header class="hud-header" id="hud-header">
+    <div class="hud-container">
+      <div class="hud-brand">
+        <a href="#mission-control" class="brand-link">
+          <span class="callsign-badge">CALLSIGN</span>
+          <span class="brand-name">JK // AEROSPACE</span>
+        </a>
+        <div class="telemetry-pill">
+          <span class="pulse-dot"></span>
+          <span class="telemetry-text" id="mission-status-text">STATUS: FLIGHT READY • 7.9 CGPA</span>
+        </div>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="hud-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#mission-control" class="nav-link active"><span class="nav-idx">01.</span>MISSION</a></li>
+          <li><a href="#flight-systems" class="nav-link"><span class="nav-idx">02.</span>SYSTEMS</a></li>
+          <li><a href="#mission-payloads" class="nav-link"><span class="nav-idx">03.</span>PAYLOADS</a></li>
+          <li><a href="#flight-trajectory" class="nav-link"><span class="nav-idx">04.</span>TRAJECTORY</a></li>
+          <li><a href="#mission-comms" class="nav-link"><span class="nav-idx">05.</span>COMMS</a></li>
+        </ul>
+      </nav>
+
+      <!-- Quick Actions & Settings -->
+      <div class="hud-actions">
+        <button id="cursor-toggle-btn" class="hud-btn hud-btn-outline" title="Toggle Rocket Cursor Tracker">
+          <span class="hud-icon">🚀</span>
+          <span class="btn-text">TRACKER: ON</span>
+        </button>
+        <a href="#mission-comms" class="hud-btn hud-btn-primary">
+          <span>TRANSMIT</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="main-content">
+
+    <!-- HERO / MISSION CONTROL SECTION -->
+    <section id="mission-control" class="section hero-section">
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          <div class="mission-tag">
+            <span class="icon">🛰️</span>
+            <span>AEROSPACE SYSTEMS & PROPULSION INITIATIVE</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="greeting">Hi, I'm</span>
+            <span class="name-highlight">Jayesh Khatwani</span>
+            <span class="hero-subtitle">Aerospace Engineer & Systems Designer</span>
+          </h1>
+
+          <p class="hero-description">
+            B.Tech Aerospace Engineering student at <strong>SRM Institute of Science and Technology</strong> with a focus on 
+            <strong>Aerodynamics, Propulsion, and Structural Mechanics</strong>. Driven to engineer next-generation aircraft and spacecraft solutions through advanced <strong>CAD modeling (CATIA/SolidWorks)</strong>, <strong>ANSYS CFD simulation</strong>, and research in <strong>nanosatellite structures (SRMSAT)</strong>.
+          </p>
+
+          <!-- Telemetry Live Metrics Grid -->
+          <div class="telemetry-grid">
+            <div class="telemetry-card">
+              <div class="metric-label">// ACADEMIC CGPA</div>
+              <div class="metric-value">7.9 <span class="metric-unit">/ 10</span></div>
+              <div class="metric-meta">Peak SGPA: 8.9 (SRM IST)</div>
+            </div>
+            <div class="telemetry-card">
+              <div class="metric-label">// RESEARCH LABS</div>
+              <div class="metric-value">ASRL <span class="metric-unit">&</span> SRMSAT</div>
+              <div class="metric-meta">Satellite Honeycombs & Prototyping</div>
+            </div>
+            <div class="telemetry-card">
+              <div class="metric-label">// LANGUAGE PROFICIENCY</div>
+              <div class="metric-value">Goethe A2</div>
+              <div class="metric-meta">German Certified • English • Hindi</div>
+            </div>
+            <div class="telemetry-card">
+              <div class="metric-label">// INNOVATION AWARD</div>
+              <div class="metric-value">1st Prize</div>
+              <div class="metric-meta">Physics Exhibition (Longboard)</div>
+            </div>
+          </div>
+
+          <!-- Hero Action CTAs -->
+          <div class="hero-actions">
+            <a href="#mission-payloads" class="btn btn-primary">
+              <span class="btn-icon">🛸</span>
+              <span>Explore Missions & Projects</span>
+            </a>
+            <a href="#flight-trajectory" class="btn btn-secondary">
+              <span class="btn-icon">📜</span>
+              <span>Flight Trajectory & CV</span>
+            </a>
+            <button id="download-cv-btn" class="btn btn-outline" onclick="window.print()">
+              <span class="btn-icon">📄</span>
+              <span>Print / Save Flight Record</span>
+            </button>
+          </div>
+
+          <!-- Live Mission Elapsed Time & Coordinates Telemetry -->
+          <div class="live-telemetry-bar">
+            <div class="telemetry-item">
+              <span class="dim-label">MET:</span> <span id="met-timer" class="telemetry-mono">T+00:00:00</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="dim-label">ORBITAL TARGET:</span> <span class="telemetry-mono">TUM B.Sc / M.Tech Aerospace</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="dim-label">CURSOR VECTOR:</span> <span id="cursor-coords" class="telemetry-mono">X: 000 | Y: 000</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Orbital Visualizer Card -->
+        <div class="hero-orbit-card">
+          <div class="hud-panel-header">
+            <div class="hud-dots"><span></span><span></span><span></span></div>
+            <div class="hud-panel-title">TELEMETRY // ORBITAL RADAR</div>
+            <div class="hud-live-tag">LIVE SIM</div>
+          </div>
+          
+          <div class="radar-display">
+            <div class="radar-rings">
+              <div class="ring ring-1"></div>
+              <div class="ring ring-2"></div>
+              <div class="ring ring-3"></div>
+              <div class="radar-sweep"></div>
+            </div>
+            
+            <div class="celestial-node earth-node" title="Origin: Earth (SRM Chennai)">
+              <div class="node-planet earth-core"></div>
+              <span class="node-label">SRM IST [7.9 CGPA]</span>
+            </div>
+
+            <div class="celestial-node mars-node" title="Target: Mars / TUM Orbit">
+              <div class="node-planet mars-core"></div>
+              <span class="node-label">TUM / R&D TARGET</span>
+            </div>
+
+            <div class="orbital-satellite-track" id="satellite-beacon">
+              <div class="satellite-blip"></div>
+              <span class="sat-label">SRMSAT-1 [HONEYCOMB]</span>
+            </div>
+          </div>
+
+          <div class="radar-footer">
+            <div class="flight-mode">MISSION DIRECTIVE</div>
+            <div class="flight-goal">Advance aircraft & spacecraft design through CAD, ANSYS CFD, and Sustainable Propulsion.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FLIGHT SYSTEMS & ENGINEERING ARSENAL (SKILLS) -->
+    <section id="flight-systems" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">// FLIGHT SYSTEMS & ARSENAL</div>
+          <h2 class="section-title">Technical Expertise & Core Competencies</h2>
+          <p class="section-subtitle">
+            A comprehensive suite of CAD modeling, fluid dynamics simulation, programming, and hands-on aerospace fabrication tools.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- CAD & Simulation -->
+          <div class="skill-category-card">
+            <div class="card-glow"></div>
+            <div class="category-header">
+              <div class="category-icon">📐</div>
+              <div>
+                <h3 class="category-title">CAD & Simulation</h3>
+                <span class="category-meta">3D Structural & Computational Analysis</span>
+              </div>
+            </div>
+            <div class="skill-chips">
+              <div class="skill-chip active" data-desc="Parametric surface modeling, aerospace component assembly, structural drafting.">
+                <span class="chip-name">CATIA v5</span>
+                <span class="chip-level">Advanced</span>
+              </div>
+              <div class="skill-chip active" data-desc="Mechanical assembly, stress simulation, rapid prototyping models.">
+                <span class="chip-name">SolidWorks</span>
+                <span class="chip-level">Proficient</span>
+              </div>
+              <div class="skill-chip active" data-desc="Computational Fluid Dynamics, airflow boundary analysis, incompressible aerodynamics.">
+                <span class="chip-name">ANSYS (CFD)</span>
+                <span class="chip-level">Specialized</span>
+              </div>
+              <div class="skill-chip active" data-desc="Finite Element Analysis (FEA), stress-strain distribution, structural integrity.">
+                <span class="chip-name">ANSYS (FEA)</span>
+                <span class="chip-level">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aerospace Mechanics & Systems -->
+          <div class="skill-category-card">
+            <div class="card-glow"></div>
+            <div class="category-header">
+              <div class="category-icon">🛸</div>
+              <div>
+                <h3 class="category-title">Aerospace & Dynamics</h3>
+                <span class="category-meta">Flight Physics & Vehicle Design</span>
+              </div>
+            </div>
+            <div class="skill-chips">
+              <div class="skill-chip active" data-desc="Lift/drag optimization, boundary layer phenomena, airfoil profiling.">
+                <span class="chip-name">Incompressible Aerodynamics</span>
+                <span class="chip-level">Core Focus</span>
+              </div>
+              <div class="skill-chip active" data-desc="Thrust dynamics, thermodynamic cycle analysis, propulsion efficiency.">
+                <span class="chip-name">Propulsion Systems</span>
+                <span class="chip-level">Core Focus</span>
+              </div>
+              <div class="skill-chip active" data-desc="Multi-rotor frame design, thrust-to-weight optimization, motor selection.">
+                <span class="chip-name">Drone Mechanics</span>
+                <span class="chip-level">Applied</span>
+              </div>
+              <div class="skill-chip active" data-desc="PID tuning, IMU sensor calibration, telemetry transmission.">
+                <span class="chip-name">Flight Controller Systems</span>
+                <span class="chip-level">Applied</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Computation & Programming -->
+          <div class="skill-category-card">
+            <div class="card-glow"></div>
+            <div class="category-header">
+              <div class="category-icon">💻</div>
+              <div>
+                <h3 class="category-title">Programming & Analysis</h3>
+                <span class="category-meta">Engineering Computation & Data Modeling</span>
+              </div>
+            </div>
+            <div class="skill-chips">
+              <div class="skill-chip active" data-desc="Numerical computation, trajectory calculations, data processing scripts.">
+                <span class="chip-name">Python</span>
+                <span class="chip-level">Engineering Scripting</span>
+              </div>
+              <div class="skill-chip active" data-desc="Compressive vs tensile stress boundaries, crack propagation, high-impact glass failure.">
+                <span class="chip-name">Fracture Mechanics</span>
+                <span class="chip-level">Research</span>
+              </div>
+              <div class="skill-chip active" data-desc="Elasticity, Mohr circle stress tensors, shear strain dynamics.">
+                <span class="chip-name">Solid Mechanics</span>
+                <span class="chip-level">Theoretical</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fabrication & Materials -->
+          <div class="skill-category-card">
+            <div class="card-glow"></div>
+            <div class="category-header">
+              <div class="category-icon">⚙️</div>
+              <div>
+                <h3 class="category-title">Manufacturing & Materials</h3>
+                <span class="category-meta">Laboratory Prototyping & Structures</span>
+              </div>
+            </div>
+            <div class="skill-chips">
+              <div class="skill-chip active" data-desc="High strength-to-weight ratio sandwich panels for satellite structural chassis.">
+                <span class="chip-name">Satellite Honeycomb Cores</span>
+                <span class="chip-level">SRMSAT Club</span>
+              </div>
+              <div class="skill-chip active" data-desc="Precision machining, drilling, composite layup, mechanical assembly.">
+                <span class="chip-name">Fabrication & Assembly</span>
+                <span class="chip-level">Hands-on</span>
+              </div>
+              <div class="skill-chip active" data-desc="Metals, polymers, thermal stress tolerance, lightweight aerospace composites.">
+                <span class="chip-name">Material Science</span>
+                <span class="chip-level">Applied</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Skill Inspector Box -->
+        <div class="skill-inspector-box" id="skill-inspector">
+          <div class="inspector-badge">SYSTEM INSPECTOR</div>
+          <div class="inspector-content">
+            <span class="inspector-title" id="inspector-title">CATIA v5 & SolidWorks</span>
+            <p class="inspector-text" id="inspector-text">
+              Hover over any flight system above to inspect technical applications, engineering methodologies, and lab implementations.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- MISSION ARCHIVES / PROJECTS & RESEARCH PAYLOADS -->
+    <section id="mission-payloads" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">// MISSION ARCHIVES & PAYLOADS</div>
+          <h2 class="section-title">Featured Projects & Research Initiatives</h2>
+          <p class="section-subtitle">
+            Hands-on aerospace design, satellite structures, mobility engineering, and empirical material science experiments.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- PROJECT 1: SRMSAT Satellite Honeycomb Structure -->
+          <article class="project-card" data-mission="srmsat">
+            <div class="project-badge">SATELLITE SYSTEMS</div>
+            <div class="project-header">
+              <div class="mission-number">MISSION // 01</div>
+              <div class="status-indicator live">COMPLETED</div>
+            </div>
+            <h3 class="project-title">Aerospace Design & Fabrication for Satellite (SRMSAT)</h3>
+            <p class="project-summary">
+              Collaborated on structural optimization and design methodologies for lightweight honeycomb core panels used in modern nanosatellites to resist extreme launch vibrational loads.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tag">Honeycomb Structures</span>
+              <span class="tag">CATIA v5</span>
+              <span class="tag">Structural Optimization</span>
+              <span class="tag">Spacecraft Chassis</span>
+            </div>
+            <div class="project-footer">
+              <button class="modal-trigger-btn" onclick="openMissionModal('srmsat')">
+                <span>View Mission Dossier</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: ASRL Research Lab -->
+          <article class="project-card" data-mission="asrl">
+            <div class="project-badge">RESEARCH LAB</div>
+            <div class="project-header">
+              <div class="mission-number">MISSION // 02</div>
+              <div class="status-indicator live">ACTIVE LAB</div>
+            </div>
+            <h3 class="project-title">Aerospace Design & Fabrication (ASRL)</h3>
+            <p class="project-summary">
+              Active contributor to university research laboratory projects, enhancing practical hands-on engineering across prototype fabrication, aerodynamic evaluation, and material testing.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tag">ASRL Lab</span>
+              <span class="tag">Rapid Prototyping</span>
+              <span class="tag">SolidWorks</span>
+              <span class="tag">Aerodynamics</span>
+            </div>
+            <div class="project-footer">
+              <button class="modal-trigger-btn" onclick="openMissionModal('asrl')">
+                <span>View Mission Dossier</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: Electric Longboard Project (1st Prize) -->
+          <article class="project-card featured-card" data-mission="longboard">
+            <div class="project-badge award-badge">🏆 1ST PRIZE WINNER</div>
+            <div class="project-header">
+              <div class="mission-number">MISSION // 03</div>
+              <div class="status-indicator live">AWARDED</div>
+            </div>
+            <h3 class="project-title">High-Torque Custom Electric Longboard Vehicle</h3>
+            <p class="project-summary">
+              Engineered and built a high-performance electric longboard utilizing an adapted high-torque drilling drive mechanism, integrating mechanical energy conversion, power transmission, and material science.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tag">Power Mechanics</span>
+              <span class="tag">Energy Conversion</span>
+              <span class="tag">Fabrication</span>
+              <span class="tag">1st Prize Winner</span>
+            </div>
+            <div class="project-footer">
+              <button class="modal-trigger-btn" onclick="openMissionModal('longboard')">
+                <span>View Mission Dossier</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Rupert's Drop Experiment -->
+          <article class="project-card" data-mission="rupert">
+            <div class="project-badge">MATERIAL PHYSICS</div>
+            <div class="project-header">
+              <div class="mission-number">MISSION // 04</div>
+              <div class="status-indicator live">RESEARCH</div>
+            </div>
+            <h3 class="project-title">Prince Rupert’s Drop Fracture Mechanics Investigation</h3>
+            <p class="project-summary">
+              Conducted in-depth experimental research into extreme compressive outer surface stress vs internal tensile stress boundaries, evaluating explosive crack propagation and rapid thermal quenching.
+            </p>
+            <div class="project-tech-tags">
+              <span class="tag">Fracture Mechanics</span>
+              <span class="tag">Thermal Quenching</span>
+              <span class="tag">Tensile Stress</span>
+              <span class="tag">Material Properties</span>
+            </div>
+            <div class="project-footer">
+              <button class="modal-trigger-btn" onclick="openMissionModal('rupert')">
+                <span>View Mission Dossier</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FLIGHT TRAJECTORY (EDUCATION, TIMELINE & HORIZONS) -->
+    <section id="flight-trajectory" class="section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-badge">// FLIGHT TRAJECTORY & CAREER ROADMAP</div>
+          <h2 class="section-title">Academic Orbit & Future Horizons</h2>
+          <p class="section-subtitle">
+            From foundational physics to undergraduate aerospace excellence and future international research aspirations.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          
+          <!-- Timeline Node 1: SRM IST -->
+          <div class="timeline-node">
+            <div class="node-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="node-content">
+              <div class="node-time">AUG 2023 — PRESENT (4TH YEAR, 7TH SEM)</div>
+              <h3 class="node-title">B.Tech in Aerospace Engineering</h3>
+              <div class="node-institution">SRM University of Science and Technology, Chennai</div>
+              
+              <div class="sgpa-breakdown">
+                <div class="sgpa-badge">Sem 1: <strong>8.5</strong></div>
+                <div class="sgpa-badge">Sem 2: <strong>6.5</strong></div>
+                <div class="sgpa-badge">Sem 3: <strong>7.4</strong></div>
+                <div class="sgpa-badge">Sem 4: <strong>8.24</strong></div>
+                <div class="sgpa-badge">Sem 5: <strong>8.00</strong></div>
+                <div class="sgpa-badge peak">Sem 6: <strong>8.90</strong> 🚀</div>
+                <div class="sgpa-overall">OVERALL CGPA: <strong>7.9 / 10</strong></div>
+              </div>
+
+              <p class="node-desc">
+                <strong>Key Focus Areas:</strong> Incompressible Aerodynamics, Rocket & Air-breathing Propulsion, Structural Design & Finite Element Analysis. Active member in Aerospace Research Lab (ASRL) and SRMSAT satellite design team.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 2: German Language Certification -->
+          <div class="timeline-node">
+            <div class="node-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="node-content">
+              <div class="node-time">INTERNATIONAL CERTIFICATION</div>
+              <h3 class="node-title">German Language Proficiency (Goethe-Zertifikat A2)</h3>
+              <div class="node-institution">Goethe-Institut / Max Mueller Bhavan</div>
+              <p class="node-desc">
+                Completed certified A2 level German language proficiency to support international collaboration, academic exchange, and prospective research studies in Germany (e.g., TUM).
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 3: High School Diploma -->
+          <div class="timeline-node">
+            <div class="node-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="node-content">
+              <div class="node-time">APRIL 2007 — AUGUST 2022</div>
+              <h3 class="node-title">High School Diploma (CBSE Board)</h3>
+              <div class="node-institution">Mayoor School</div>
+              <div class="grade-pill-group">
+                <span class="grade-pill">Grade 12: <strong>86%</strong> (CBSE)</span>
+                <span class="grade-pill">Grade 10: <strong>76%</strong> (CBSE)</span>
+              </div>
+              <p class="node-desc">
+                Strong foundation in advanced Physics, Mathematics, and Chemistry. Awarded 1st prize in the Science & Physics Exhibition for custom electric mobility engineering.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Node 4: Target Horizons -->
+          <div class="timeline-node future-node">
+            <div class="node-marker">
+              <span class="marker-dot future"></span>
+            </div>
+            <div class="node-content future-content">
+              <div class="node-time">NEXT ORBITAL INSERTION // CAREER OBJECTIVES</div>
+              <h3 class="node-title">Future Horizons & R&D Goals</h3>
+              <ul class="goals-list">
+                <li>🎯 <strong>Graduate Studies:</strong> Secure admission for B.Sc / M.Tech / PhD in Aerospace Structures & Propulsion at institutions like <strong>Technical University of Munich (TUM)</strong>.</li>
+                <li>🌱 <strong>Sustainable Aviation:</strong> Contribute to groundbreaking R&D in green aerospace propulsion, hybrid-electric aircraft, and autonomous UAV dynamics.</li>
+                <li>🛰️ <strong>Global Aerospace Industry:</strong> Collaborate with international aerospace firms to solve complex aerodynamic and structural engineering challenges.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- MISSION COMMS & CONTACT SECTION -->
+    <section id="mission-comms" class="section">
+      <div class="container">
+        
+        <div class="comms-panel">
+          <div class="card-glow"></div>
+          
+          <div class="comms-header">
+            <div class="section-badge">// TRANSMISSION LINK</div>
+            <h2 class="section-title">Initiate Transmission // Get In Touch</h2>
+            <p class="section-subtitle">
+              Open for graduate opportunities, aerospace research collaborations, internships, and technical discussions.
+            </p>
+          </div>
+
+          <div class="comms-grid">
+            
+            <!-- Direct Contact Info -->
+            <div class="comms-info">
+              <div class="comms-card">
+                <div class="comms-icon">📧</div>
+                <div class="comms-details">
+                  <span class="info-label">Direct Communication</span>
+                  <a href="mailto:jk032004de@gmail.com" class="info-value">jk032004de@gmail.com</a>
+                </div>
+                <button class="copy-btn" id="copy-email-btn" title="Copy Email Address" onclick="copyEmail()">
+                  <span id="copy-text">COPY</span>
+                </button>
+              </div>
+
+              <div class="comms-card">
+                <div class="comms-icon">💼</div>
+                <div class="comms-details">
+                  <span class="info-label">Professional Network</span>
+                  <a href="https://www.linkedin.com/in/jayesh-khatwani-a43425251" target="_blank" rel="noopener noreferrer" class="info-value">LinkedIn Profile →</a>
+                </div>
+              </div>
+
+              <div class="comms-card">
+                <div class="comms-icon">📍</div>
+                <div class="comms-details">
+                  <span class="info-label">Current Base</span>
+                  <span class="info-value">SRM IST, Chennai, India</span>
+                </div>
+              </div>
+
+              <div class="comms-card">
+                <div class="comms-icon">🗣️</div>
+                <div class="comms-details">
+                  <span class="info-label">Communication Languages</span>
+                  <span class="info-value">English (Fluent) • Hindi (Native) • German (Goethe A2)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Transmission Form -->
+            <form class="comms-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="sender-name">CALLSIGN / NAME</label>
+                <input type="text" id="sender-name" required placeholder="e.g. Dr. Schmidt / Recruiter Name" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-email">FREQUENCY / EMAIL</label>
+                <input type="email" id="sender-email" required placeholder="your.email@organization.com" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-subject">SUBJECT / MISSION PURPOSE</label>
+                <input type="text" id="sender-subject" required placeholder="Aerospace Internship / Research Collaboration / TUM Opportunity" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message">TRANSMISSION PAYLOAD / MESSAGE</label>
+                <textarea id="sender-message" rows="4" required placeholder="Write your message here..." class="form-input form-textarea"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                <span>Send Direct Transmission</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+
+              <div class="form-feedback" id="form-feedback"></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MISSION DOSSIER MODALS -->
+  <div class="modal-overlay" id="mission-modal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeMissionModal()" aria-label="Close Mission Modal">✕</button>
+      <div class="modal-badge" id="modal-badge">MISSION SPECIFICATION</div>
+      <h3 class="modal-title" id="modal-title">Mission Title</h3>
+      
+      <div class="modal-telemetry-row">
+        <div class="m-tele-item"><span class="m-tele-label">SYSTEM:</span> <span id="modal-system">Aerospace</span></div>
+        <div class="m-tele-item"><span class="m-tele-label">TOOLS:</span> <span id="modal-tools">CATIA / ANSYS</span></div>
+        <div class="m-tele-item"><span class="m-tele-label">STATUS:</span> <span id="modal-status">VERIFIED</span></div>
+      </div>
+
+      <div class="modal-body" id="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeMissionModal()">Close Dossier</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD Footer -->
+  <footer class="hud-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="callsign">JK // AEROSPACE</span>
+        <span class="copyright">© 2026 Jayesh Khatwani. Crafted for Space Exploration & Aviation Excellence.</span>
+      </div>
+      <div class="footer-right">
+        <span class="orbit-coord">LEO ELEVATION: 420 KM</span>
+        <span class="system-status">SYS: NOMINAL</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
