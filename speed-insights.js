@@ -5,6 +5,7 @@
  * and performance metrics on this site.
  * 
  * This uses the ES Module from the @vercel/speed-insights package.
+ * Documentation: https://vercel.com/docs/speed-insights/quickstart
  */
 
 import { injectSpeedInsights } from './speed-insights-dist/index.mjs';
