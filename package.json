@@ -1,0 +1,25 @@
+{
+  "name": "primary",
+  "version": "1.0.0",
+  "description": "An interactive, high-performance **Aerospace-themed portfolio website** designed for **Jayesh Khatwani** (B.Tech in Aerospace Engineering, SRM IST Chennai / TUM Aspirant).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"No tests configured for this static site\" && exit 0",
+    "serve": "npx http-server -p 8080",
+    "dev": "npx http-server -p 8080 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jayesh-5260/hello-my-world.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jayesh-5260/hello-my-world/issues"
+  },
+  "homepage": "https://github.com/Jayesh-5260/hello-my-world#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
