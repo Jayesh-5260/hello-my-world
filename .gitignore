@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Package manager lock files are tracked to ensure consistent installs
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Build outputs (if any)
+dist/
+build/
+
+# Environment files
+.env
+.env.local
